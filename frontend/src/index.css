@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base em HSL, para bater com tailwind.config (hsl(var(--...))) */
+    --background: 228 14% 6%;
+    --foreground: 210 20% 90%;
+
+    --card: 225 12% 9%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 225 12% 9%;
+    --popover-foreground: 210 20% 90%;
+
+    /* PRIMÁRIO AGORA VERDE (Mongo-ish) EM VEZ DE VERMELHO */
+    --primary: 140 60% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 225 10% 15%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 225 10% 13%;
+    --muted-foreground: 215 12% 50%;
+
+    --accent: 140 60% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 225 10% 16%;
+    --input: 225 10% 16%;
+    --ring: 140 60% 42%;
+
+    --radius: 0.5rem;
+
+    /* Tokens F1 / extras */
+    --f1-red: 0 95% 45%;
+    --f1-green: 140 60% 42%;
+    --f1-yellow: 45 100% 50%;
+    --f1-blue: 210 100% 50%;
+    --f1-surface: 225 14% 11%;
+    --f1-surface-elevated: 225 12% 14%;
+
+    --sidebar-background: 225 14% 8%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 140 60% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 225 10% 15%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 225 10% 16%;
+    --sidebar-ring: 140 60% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Gradientes F1 antigos (ainda úteis para posições/pills) */
+  .f1-gradient-red {
+    background: linear-gradient(135deg, hsl(var(--f1-red)), hsl(0 80% 35%));
+  }
+  .f1-gradient-green {
+    background: linear-gradient(135deg, hsl(var(--f1-green)), hsl(140 50% 32%));
+  }
+  .f1-gradient-surface {
+    background: linear-gradient(180deg, hsl(var(--f1-surface)), hsl(var(--background)));
+  }
+  .f1-glow-red {
+    box-shadow: 0 0 20px hsl(var(--f1-red) / 0.3),
+                0 0 60px hsl(var(--f1-red) / 0.1);
+  }
+  .f1-glow-green {
+    box-shadow: 0 0 20px hsl(var(--f1-green) / 0.3),
+                0 0 60px hsl(var(--f1-green) / 0.1);
+  }
+  .f1-border-glow {
+    border: 1px solid hsl(var(--f1-red) / 0.3);
+  }
+  .text-gradient-red {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(0 95% 55%),
+      hsl(0 80% 40%)
+    );
+  }
+
+  /* Se quiser manter alguns utilitários “novos” em cima disso: */
+  .gradient-surface {
+    background: linear-gradient(180deg, hsl(225 14% 11%), hsl(228 14% 6%));
+  }
+  .text-gradient-green {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(140 70% 55%),
+      hsl(var(--f1-green))
+    );
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(225 14% 8%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(225 10% 20%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(225 10% 28%);
+}
