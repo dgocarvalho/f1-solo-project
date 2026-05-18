@@ -1,4 +1,4 @@
-# 🏎️ F1 Dashboard API
+# 🏎️ F1 Analytics Dashboard — Full Stack Data Application
 
 A full-stack backend system that ingests, processes, and exposes Formula 1 data using a structured analytics pipeline.
 
